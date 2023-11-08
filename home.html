@@ -192,8 +192,8 @@
             <th scope="col">Tên</th>
             <th scope="col">Điểm</th>
             <th scope="col">Lớp</th>
-            <th scope="col">Sửa</th>
-            <th scope="col">Xóa</th>
+            <th scope="col" id="column-edit">Sửa</th>
+            <th scope="col" id="column-delete">Xóa</th>
           </tr>
         </thead>
         <tbody id="list-student">
@@ -227,6 +227,14 @@
     <script src="student/edit.js"></script>
     <script src="clazz/list.js"></script>
     <script>
+      if(localStorage.getItem("roleList") == null) {
+        window.location.href = "login.html";
+      }
+
+       if (!localStorage.getItem("roleList")?.includes("ADMIN")) {
+
+          $("#btn-create-student, #column-edit, #column-delete").css({display: 'none'});
+        }
       $(document).ready(function () {
         display();
       });

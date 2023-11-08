@@ -1,5 +1,8 @@
 function selectOptionClazz(htmlId, classId) {
     $.ajax({
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("accessToken"), // Đính kèm token trong tiêu đề
+      },
         type: "GET", // Sử dụng phương thức GET để yêu cầu dữ liệu từ server.
         url: "http://localhost:8080/clazzes", // Đây là địa chỉ của API hoặc trang web bạn muốn tương tác.
         success: function (clazzes) {

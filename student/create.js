@@ -22,6 +22,7 @@ $("#form-add-student").submit(function (event) {
     headers: {
         Accept: 'application/json', // Đặt kiểu dữ liệu được chấp nhận từ server là JSON.
         'Content-Type': 'application/json', // Đặt kiểu dữ liệu được gửi lên server là JSON.
+        Authorization: "Bearer " + localStorage.getItem("accessToken"), // Đính kèm token trong tiêu đề
     },
     type: 'POST', // Sử dụng phương thức POST để gửi dữ liệu lên server.
     data: JSON.stringify(student), // Chuyển đổi đối tượng 'student' thành chuỗi JSON để gửi lên server.
